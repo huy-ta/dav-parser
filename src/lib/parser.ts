@@ -27,6 +27,8 @@ export function parse(ics: string): CalendarEventObject[] {
 const componentToEvent = (component: Component): CalendarEventObject => {
   const event: Event = new Event(component);
 
+  console.log('componentToEvent event =', event);
+
   return parseEvent(event) as CalendarEventObject;
 }
 
@@ -51,6 +53,8 @@ const parseAttendees = (attendees: Property[]): Attendee[] => {
  * @returns CalendarEventObject
  */
 const parseEvent = (event: Event): CalendarEventObject => {
+  console.log('parseEvent event =', event);
+
   const eventObject: CalendarEventObject = {
     id: event.uid,
     allDay: event.startDate.isDate,
